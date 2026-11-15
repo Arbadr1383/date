@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#7c3aed">
+<meta name="description" content="یک دعوت کوچیک برای یک قرار قشنگ">
+<title>یه دعوت کوچولو 💌</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#3b1450;--muted:#7a5a8c;--pink:#ff6fb5;--violet:#8b5cf6;--soft:#fff0fa;--line:#f0d4ee}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{min-height:100vh;display:grid;place-items:center;padding:18px;overflow-x:hidden;
+  font-family:Vazirmatn,Tahoma,system-ui,sans-serif;color:var(--ink);
+  background:linear-gradient(160deg,#ffd6ee 0%,#e9d5ff 55%,#c7d2fe 100%) fixed}
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.hearts i{position:absolute;bottom:-40px;font-style:normal;opacity:.55;animation:float linear infinite}
+@keyframes float{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+.card{position:relative;z-index:1;width:min(100%,460px);background:rgba(255,255,255,.82);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #fff;
+  border-radius:30px;padding:30px 24px 26px;box-shadow:0 24px 60px #7c3aed26;text-align:center}
+.panel{display:none}.panel.on{display:block;animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.big{font-size:64px;line-height:1;margin-bottom:6px;animation:beat 1.6s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+h1{font-size:27px;line-height:1.6;margin:8px 0 10px;font-weight:800}
+h1 b{background:linear-gradient(90deg,var(--pink),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:22px;margin:4px 0 6px;font-weight:800}
+p{margin:0;color:var(--muted);line-height:2;font-size:14px}
+.btn{display:block;width:100%;border:0;border-radius:18px;font:800 16px Vazirmatn,Tahoma,sans-serif;cursor:pointer;
+  padding:15px 16px;transition:transform .15s,box-shadow .15s,opacity .15s}
+.btn:active{transform:scale(.97)}
+.yes{margin-top:22px;color:#fff;background:linear-gradient(100deg,var(--pink),var(--violet));box-shadow:0 10px 24px #c026d355}
+.yes:hover{transform:translateY(-2px)}
+.yes[disabled]{opacity:.6;cursor:wait}
+.no{margin:14px auto 0;width:auto;display:inline-block;background:#fff;color:var(--muted);border:1px solid var(--line);
+  font-weight:600;font-size:14px;padding:10px 20px;border-radius:14px;transition:all .25s ease}
+.nowrap{min-height:52px}
+.msg{min-height:50px;margin-top:12px;font-size:14px;font-weight:600;color:#c026d3;line-height:1.9}
+.msg.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(6px)}75%{transform:translateX(-6px)}}
+.grid{display:grid;gap:10px;margin-top:18px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:16px;padding:12px 6px;font:600 13px Vazirmatn,Tahoma,sans-serif;color:var(--ink);cursor:pointer;transition:.15s}
+.chip em{display:block;font-style:normal;font-size:26px;margin-bottom:3px}
+.chip small{display:block;color:var(--muted);font-weight:400;font-size:11px;margin-top:2px}
+.chip:hover{border-color:var(--pink)}
+.chip.sel{border-color:var(--violet);background:linear-gradient(145deg,#fff0fa,#ede9fe);box-shadow:0 6px 16px #8b5cf633}
+.label{font-size:12px;font-weight:700;color:var(--muted);text-align:right;margin:20px 0 -4px}
+.sub{display:flex;gap:10px;margin-top:20px}
+.back{width:34%;flex-shrink:0;background:#f5eefa;color:var(--muted)}
+.go{flex:1;color:#fff;background:linear-gradient(100deg,var(--pink),var(--violet))}
+.go[disabled]{opacity:.55}
+.err{color:#d6336c;font-size:12px;min-height:20px;margin-top:10px}
+input[type=tel],input[type=date]{width:100%;border:1.5px solid var(--line);border-radius:14px;padding:12px;font:500 14px Vazirmatn,Tahoma,sans-serif;color:var(--ink);background:#fff;outline:none;margin-top:8px}
+input:focus{border-color:var(--violet)}
+.link{background:none;border:0;color:var(--violet);font:600 12px Vazirmatn,Tahoma,sans-serif;cursor:pointer;margin-top:10px;padding:4px}
+.sum{margin-top:18px;background:var(--soft);border-radius:16px;padding:10px 14px;font-size:13px;color:var(--ink);line-height:2.1}
+.sum span{color:var(--muted)}
+.dots{display:flex;justify-content:center;gap:6px;margin-bottom:14px}
+.dots i{width:22px;height:5px;border-radius:9px;background:#e9d9f3}.dots i.on{background:linear-gradient(90deg,var(--pink),var(--violet))}
+.hide{display:none!important}
+.conf{position:fixed;top:-30px;font-size:24px;z-index:5;pointer-events:none;animation:fall 2.6s ease-in forwards}
+@keyframes fall{to{transform:translateY(112vh) rotate(360deg);opacity:.2}}
+.foot{margin-top:16px;font-size:11px;color:#9a7fae}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts" aria-hidden="true"></div>
+<main class="card">
+
+  <!-- 1: دعوت -->
+  <section class="panel on" id="s1">
+    <div class="big">💌</div>
+    <h1>می‌خوای با هم یه <b>قرار قشنگ</b> بذاریم؟</h1>
+    <p>یه کافه، یه قدم‌زدن، یه بستنی...<br>هرچی تو بگی، من هم‌راهم 😊</p>
+    <button class="btn yes" id="yes">بله، بریم! 💖</button>
+    <div class="nowrap"><button class="btn no" id="no">نه، ممنون</button></div>
+    <div class="msg" id="msg" aria-live="polite"></div>
+  </section>
+
+  <!-- 2: کجا -->
+  <section class="panel" id="s2">
+    <div class="dots"><i class="on"></i><i class="on"></i><i></i></div>
+    <h2>کجا بریم؟</h2>
+    <p>یکی رو انتخاب کن</p>
+    <div class="grid g2" id="places">
+      <button class="chip" data-v="کافه"><em>☕</em>کافه<small>قهوه و گپ</small></button>
+      <button class="chip" data-v="رستوران"><em>🍝</em>رستوران<small>یه شام خوب</small></button>
+      <button class="chip" data-v="پارک"><em>🌳</em>پارک<small>هوای تازه</small></button>
+      <button class="chip" data-v="پیاده‌روی"><em>🚶</em>پیاده‌روی<small>مسیر قشنگ</small></button>
+      <button class="chip" data-v="بستنی و دسر"><em>🍦</em>بستنی و دسر<small>شیرین‌کاری</small></button>
+      <button class="chip" data-v="غافلگیری"><em>🎁</em>غافلگیری<small>به من اعتماد کن</small></button>
+    </div>
+    <div class="err" id="e2"></div>
+    <div class="sub"><button class="btn back" data-back="s1">برگشت</button><button class="btn go" id="to3">بعدی</button></div>
+  </section>
+
+  <!-- 3: کی -->
+  <section class="panel" id="s3">
+    <div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <h2>چه روزی و چه ساعتی؟</h2>
+    <div class="label">روز</div>
+    <div class="grid g3" id="days"></div>
+    <button class="link" id="otherDay">تاریخ دیگه می‌خوام</button>
+    <input type="date" id="pick" class="hide" aria-label="انتخاب تاریخ">
+    <div class="label">ساعت</div>
+    <div class="grid g4" id="times"></div>
+    <div class="label">شماره تماس <span style="font-weight:400">(اختیاری، برای هماهنگی)</span></div>
+    <input type="tel" id="phone" inputmode="tel" autocomplete="tel" placeholder="۰۹…" dir="ltr" style="text-align:right">
+    <div class="sum" id="sum"></div>
+    <div class="err" id="e3"></div>
+    <div class="sub"><button class="btn back" data-back="s2">برگشت</button><button class="btn go" id="send">ثبت قرار 💜</button></div>
+  </section>
+
+  <!-- 4: تموم -->
+  <section class="panel" id="s4">
+    <div class="big">🥰</div>
+    <h1>عالی شد! <b>قرارمون ثبت شد</b></h1>
+    <div class="sum" id="final" style="text-align:right"></div>
+    <p style="margin-top:14px">پس همین‌جوری قرار شد؛ منتظرتم! ✨</p>
+  </section>
+
+  <div class="foot">ساخته‌شده با ❤️ · اطلاعات فقط برای هماهنگی قرار ذخیره می‌شود</div>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const fa=n=>new Intl.NumberFormat('fa-IR',{useGrouping:false}).format(n);
+const st={place:'',date:null,time:'',phone:''};
+
+/* قلب‌های شناور */
+(function(){const box=$('hearts'),set=['💗','💜','💖','✨','🌸'];
+  for(let i=0;i<14;i++){const h=document.createElement('i');h.textContent=set[i%set.length];
+    h.style.cssText=`left:${Math.random()*100}%;font-size:${14+Math.random()*20}px;animation-duration:${9+Math.random()*10}s;animation-delay:${-Math.random()*14}s`;box.append(h)}})();
+
+function show(id){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id===id));window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>show(b.dataset.back));
+
+/* ---------- دکمهٔ «نه»: هر بار کوچک‌تر می‌شه و «بله» بزرگ‌تر ---------- */
+const noMsgs=[
+ 'اوه! انگار اشتباهی زدی 😅 دکمهٔ «بله» اون بالاست، بزن روش!',
+ 'من «نه» رو قبول نمی‌کنم 😌 بزن روی «بله»',
+ 'دکمهٔ «نه» داره کوچیک می‌شه... 🥹 بزن روی «بله»',
+ 'ببین «بله» چقدر بزرگ و خوشگل شده! بزن روش 💖',
+ 'این دکمه دیگه جون نداره 🙏 بزن روی «بله»',
+ 'آخرین فرصت... «بله»؟ 😉',
+ 'دکمهٔ «نه» رفت! فقط «بله» موند 😄💜'
+];
+let noCount=0;
+$('no').onclick=()=>{
+  noCount++;
+  const no=$('no'),yes=$('yes'),msg=$('msg');
+  const s=Math.max(.25,1-noCount*.11);
+  no.style.fontSize=(14*s)+'px';
+  no.style.padding=`${10*s}px ${20*s}px`;
+  no.style.borderRadius=(14*s)+'px';
+  no.style.opacity=Math.max(.35,s);
+  const g=Math.min(noCount,7);
+  yes.style.fontSize=(16+g*1.4)+'px';
+  yes.style.padding=`${15+g*3}px 16px`;
+  msg.textContent=noMsgs[Math.min(noCount,noMsgs.length)-1];
+  msg.classList.remove('shake');void msg.offsetWidth;msg.classList.add('shake');
+  if(noCount>=noMsgs.length)no.classList.add('hide');
+};
+$('yes').onclick=()=>show('s2');
+
+/* ---------- انتخاب مکان ---------- */
+document.querySelectorAll('#places .chip').forEach(b=>b.onclick=()=>{
+  st.place=b.dataset.v;
+  document.querySelectorAll('#places .chip').forEach(x=>x.classList.toggle('sel',x===b));
+  $('e2').textContent='';
+});
+$('to3').onclick=()=>{if(!st.place){$('e2').textContent='یکی از گزینه‌ها رو انتخاب کن 🙂';return}update();show('s3')};
+
+/* ---------- تاریخ شمسی با Intl (بدون جدول دستی) ---------- */
+function jparts(d){
+  const p=new Intl.DateTimeFormat('en-u-ca-persian-nu-latn',{year:'numeric',month:'numeric',day:'numeric'}).formatToParts(d);
+  const g=t=>Number(p.find(x=>x.type===t).value);return{y:g('year'),m:g('month'),d:g('day')};
+}
+const fmtDay=new Intl.DateTimeFormat('fa-IR-u-ca-persian',{weekday:'long'});
+const fmtMon=new Intl.DateTimeFormat('fa-IR-u-ca-persian',{month:'long'});
+const iso=j=>`${j.y}/${String(j.m).padStart(2,'0')}/${String(j.d).padStart(2,'0')}`;
+function mk(date){const j=jparts(date);return{j,t:date.getTime(),iso:iso(j),label:`${fmtDay.format(date)} ${fa(j.d)} ${fmtMon.format(date)}`,short:`${fa(j.d)} ${fmtMon.format(date)}`,wd:fmtDay.format(date)}}
+
+const days=$('days');
+let dayKey='';
+const todayKey=()=>{const n=new Date();return n.getFullYear()+'-'+n.getMonth()+'-'+n.getDate()};
+function renderDays(){
+  dayKey=todayKey();
+  days.replaceChildren();
+  for(let i=1;i<=9;i++){
+    const dt=new Date();dt.setDate(dt.getDate()+i);const o=mk(dt);
+    const b=document.createElement('button');b.className='chip';b.dataset.iso=o.iso;
+    b.innerHTML=`${i===1?'فردا':o.wd}<small>${o.short}</small>`;
+    b.onclick=()=>{st.date=o;days.querySelectorAll('.chip').forEach(x=>x.classList.toggle('sel',x===b));$('pick').value='';update()};
+    if(st.date&&st.date.iso===o.iso)b.classList.add('sel');
+    days.append(b);
+  }
+  const t=new Date();t.setDate(t.getDate()+1);const mx=new Date();mx.setDate(mx.getDate()+365);
+  $('pick').min=t.toISOString().slice(0,10);$('pick').max=mx.toISOString().slice(0,10);
+  /* اگر روز انتخاب‌شده دیگه گذشته (مثلاً صفحه از دیروز باز مونده)، پاکش کن */
+  if(st.date&&st.date.t<=Date.now()){st.date=null;$('pick').value='';}
+  update();
+}
+/* هر روز (و هر بار که کاربر به صفحه برمی‌گرده) تاریخ‌ها از نو ساخته می‌شن */
+function refreshIfNewDay(){if(todayKey()!==dayKey)renderDays()}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshIfNewDay()});
+window.addEventListener('focus',refreshIfNewDay);
+setInterval(refreshIfNewDay,60000);
+$('otherDay').onclick=()=>{$('pick').classList.toggle('hide');$('pick').focus()};
+$('pick').onchange=e=>{
+  if(!e.target.value)return;
+  const [y,m,d]=e.target.value.split('-').map(Number);
+  const dt=new Date(y,m-1,d,12);
+  if(dt<=new Date()){$('e3').textContent='یه روز از فردا به بعد انتخاب کن 🙂';return}
+  st.date=mk(dt);days.querySelectorAll('.chip').forEach(x=>x.classList.remove('sel'));$('e3').textContent='';update();
+};
+
+/* ---------- ساعت ---------- */
+const times=$('times');
+['10:00','12:00','14:00','16:00','18:00','19:00','20:00','21:00'].forEach(t=>{
+  const b=document.createElement('button');b.className='chip';b.textContent=t.replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+  b.onclick=()=>{st.time=t;times.querySelectorAll('.chip').forEach(x=>x.classList.toggle('sel',x===b));update()};
+  times.append(b);
+});
+
+function update(){
+  const fa2=s=>s.replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+  $('sum').innerHTML=`<span>قرار:</span> ${st.place||'—'}<br><span>روز:</span> ${st.date?st.date.label:'—'}<br><span>ساعت:</span> ${st.time?fa2(st.time):'—'}`;
+}
+
+renderDays();
+
+/* ---------- ثبت ---------- */
+$('send').onclick=async()=>{
+  const e=$('e3');e.textContent='';
+  if(!st.date||!st.time){e.textContent='روز و ساعت رو هم انتخاب کن 🙂';return}
+  const phone=$('phone').value.trim();
+  if(phone&&!/^[+0-9()\-\s]{7,24}$/.test(phone.replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)))){e.textContent='شماره رو یه بار دیگه چک کن';return}
+  const btn=$('send');btn.disabled=true;btn.textContent='یه لحظه...';
+  const latin=phone.replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
+  try{
+    const r=await fetch('/api/respond',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({answer:'yes',place:st.place,jalali_date:st.date.iso,time:st.time,phone:latin,source:'invite-v4'})});
+    if(!r.ok)throw 0;
+  }catch{e.textContent='ثبت نشد؛ اینترنت رو چک کن و دوباره بزن.';btn.disabled=false;btn.textContent='ثبت قرار 💜';return}
+  $('final').innerHTML=$('sum').innerHTML;
+  show('s4');confetti();
+};
+
+function confetti(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const set=['💖','💜','🎉','✨','🌸'];
+  for(let i=0;i<26;i++){const c=document.createElement('div');c.className='conf';c.textContent=set[i%set.length];
+    c.style.left=Math.random()*100+'vw';c.style.animationDelay=Math.random()*.8+'s';document.body.append(c);setTimeout(()=>c.remove(),3800)}
+}
+</script>
+</body>
+</html>
